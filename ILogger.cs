@@ -10,10 +10,29 @@ namespace PlayGround
     {
         void SetSource(string typeName);
 
-        void Error(string message, Exception exception = null);
-        void Warn(string message, Exception exception = null);
-        void Debug(string message, Exception exception = null);
-        void Info(string message, Exception exception = null);
-        void Fatal(string message, Exception exception = null);
+        void Error(string message, Exception exception = null,
+            [System.Runtime.CompilerServices.CallerMemberName] string memberName = null,
+            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = null,
+            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0);
+
+        void Warn(string message, Exception exception = null,
+            [System.Runtime.CompilerServices.CallerMemberName] string memberName = null,
+            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = null,
+            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0);
+
+        void Debug(string message, Exception exception = null,
+            [System.Runtime.CompilerServices.CallerMemberName] string memberName = null,
+            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = null,
+            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0);
+
+        void Info(string message, Exception exception = null,
+            [System.Runtime.CompilerServices.CallerMemberName] string memberName = null,
+            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = null,
+            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0);
+
+        void Fatal(string message, Exception exception = null,
+            [System.Runtime.CompilerServices.CallerMemberName] string memberName = null,
+            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = null,
+            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0);
     }
 }

@@ -28,10 +28,11 @@ namespace PlayGround
         {
             ILogger log = container.GetInstance<ILogger>();
 
-            log.SetSource(this.ToString());
+            log.SetSource(this.GetType().ToString());
 
-            log.Error("Read this message...!", new Exception("Boooooo"));
-            log.Error("Second msg..!");
+            log.Error("Read this message...!", new Exception("An exception occured"));
+            log.Info("Everything is fine");
+            log.Warn("This is a warning!", new Exception("This is a test exception"));
 
             Console.ReadLine();
         }
