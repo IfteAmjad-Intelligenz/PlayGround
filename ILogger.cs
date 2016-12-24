@@ -10,11 +10,10 @@ namespace PlayGround
     {
         void SetSource(string typeName);
 
-        //void Error(string message, string fqname = "");
-        void Error(string message, string fqname = "", Exception exception = null);
-        void Warn(string message);
-        void Debug(string message);
-        void Info(string message);
-        void Fatal(string message);
+        void Error(string message, Exception exception = null);
+        void Warn(string message, Exception exception = null);
+        void Debug(string message, Exception exception = null);
+        void Info(string message, Exception exception = null);
+        void Fatal(string message, Exception exception = null);
     }
 }

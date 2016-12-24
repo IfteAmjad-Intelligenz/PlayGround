@@ -73,7 +73,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
     <Compile Include="Log4NetLogger.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="Program.cs" />

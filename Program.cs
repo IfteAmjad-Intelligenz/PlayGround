@@ -30,8 +30,8 @@ namespace PlayGround
 
             log.SetSource(this.ToString());
 
-            log.Error("Read this message...!", this.ToString());
-            log.Error("Second msg..!", this.ToString());
+            log.Error("Read this message...!", new Exception("Boooooo"));
+            log.Error("Second msg..!");
 
             Console.ReadLine();
         }

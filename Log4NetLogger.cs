@@ -22,40 +22,64 @@ namespace PlayGround
             TypeName = typeName;
         }
 
-        public void Error(string message, string fqname = "", Exception exception = null)
+        public void Error(string message, Exception exception = null)
         {
-            string messageWithOrigin = "[" + fqname + "] " + message;
+            string Message = message;
 
-            Exception test = new Exception("This is an exception");
+            if (exception != null)
+            {
+                Message = Message + " [System Exception: " + exception.Message + "]";
+            }
 
-            //log.Error(messageWithOrigin);
-
-            log.Error(messageWithOrigin, test);
+            log.Error(Message);
         }
 
-        //public void Error(string message, string fqname = "", Exception exception = null)
-        //{
-        //    log.Error(message, exception);
-        //}
-
-        public void Warn(string message)
+        public void Warn(string message, Exception exception = null)
         {
-            log.Warn(message);
+            string Message = message;
+
+            if (exception != null)
+            {
+                Message = Message + " [System Exception: " + exception.Message + "]";
+            }
+
+            log.Warn(Message);
         }
 
-        public void Debug(string message)
+        public void Debug(string message, Exception exception = null)
         {
-            log.Debug(message);
+            string Message = message;
+
+            if (exception != null)
+            {
+                Message = Message + " [System Exception: " + exception.Message + "]";
+            }
+
+            log.Debug(Message);
         }
 
-        public void Info(string message)
+        public void Info(string message, Exception exception = null)
         {
-            log.Info(message);
+            string Message = message;
+
+            if (exception != null)
+            {
+                Message = Message + " [System Exception: " + exception.Message + "]";
+            }
+
+            log.Info(Message);
         }
 
-        public void Fatal(string message)
+        public void Fatal(string message, Exception exception = null)
         {
-            log.Fatal(message);
+            string Message = message;
+
+            if (exception != null)
+            {
+                Message = Message + " [System Exception: " + exception.Message + "]";
+            }
+
+            log.Fatal(Message);
         }
     }
 }
