@@ -27,79 +27,89 @@ namespace PlayGround
             TypeName = typeName;
         }
 
-        public void Error(string message, Exception exception = null)
+        public void Error(string message, Exception Exception = null, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
         {
             if (isErrorEnabled)
             {
-                string Message = message;
+                string Message = BuildSourceDetails(message, memberName, sourceFilePath, sourceLineNumber);
 
-                if (exception != null)
+                if (Exception != null)
                 {
-                    Message = Message + " [System Exception: " + exception.Message + "]";
+                    Message += BuildExceptionMsg(Exception.Message);
                 }
 
                 log.Error(Message);
             }
         }
 
-        public void Warn(string message, Exception exception = null)
+        public void Warn(string message, Exception Exception = null, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
         {
             if (isWarnEnabled)
             {
-                string Message = message;
+                string Message = BuildSourceDetails(message, memberName, sourceFilePath, sourceLineNumber);
 
-                if (exception != null)
+                if (Exception != null)
                 {
-                    Message = Message + " [System Exception: " + exception.Message + "]";
+                    Message += BuildExceptionMsg(Exception.Message);
                 }
 
                 log.Warn(Message);
             }
         }
 
-        public void Debug(string message, Exception exception = null)
+        public void Debug(string message, Exception Exception = null, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
         {
             if (isDebugEnabled)
             {
-                string Message = message;
+                string Message = BuildSourceDetails(message, memberName, sourceFilePath, sourceLineNumber);
 
-                if (exception != null)
+                if (Exception != null)
                 {
-                    Message = Message + " [System Exception: " + exception.Message + "]";
+                    Message += BuildExceptionMsg(Exception.Message);
                 }
 
                 log.Debug(Message);
             }
         }
 
-        public void Info(string message, Exception exception = null)
+        public void Info(string message, Exception Exception = null, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
         {
             if (isInfoEnabled)
             {
-                string Message = message;
+                string Message = BuildSourceDetails(message, memberName, sourceFilePath, sourceLineNumber);
 
-                if (exception != null)
+                if (Exception != null)
                 {
-                    Message = Message + " [System Exception: " + exception.Message + "]";
+                    Message += BuildExceptionMsg(Exception.Message);
                 }
 
                 log.Info(Message);
             }
         }
 
-        public void Fatal(string message, Exception exception = null)
+        public void Fatal(string message, Exception Exception = null, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
         {
             if (isFatalEnabled)
             {
-                string Message = message;
+                string Message = BuildSourceDetails(message, memberName, sourceFilePath, sourceLineNumber);
 
-                if (exception != null)
+                if (Exception != null)
                 {
-                    Message = Message + " [System Exception: " + exception.Message + "]";
+                    Message += BuildExceptionMsg(Exception.Message);
                 }
 
                 log.Fatal(Message);
             }
+        }
+
+        private string BuildSourceDetails(string message, string memberName, string sourceFilePath, int sourceLineNumber)
+        {
+            return "[Class: " + TypeName + " Member: " + memberName + " Source: " + sourceFilePath + " Line: " + sourceLineNumber + "] [" + message + "]";
+        }
+
+        private string BuildExceptionMsg(string message)
+        {
+            return " [System Exception: " + message + "] ";
         }
     }
 }
