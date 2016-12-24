@@ -16,7 +16,6 @@ namespace PlayGround
         private static readonly bool isInfoEnabled = log.IsInfoEnabled;
         private static readonly bool isFatalEnabled = log.IsFatalEnabled;
 
-
         // 2016-03-03 09:00:59,076 DEBUG thread=1 [{log4net:HostName=Deer}] Intelligenz.Utils.AssemblyInitialise.Initialise(c:\TFS\Dev\Source\IntelliFitness\Utils\AssemblyInitialise.cs:44) [logging system configured]
 
         // Date Time TYPE thread hostname fullyQualifiedName message
